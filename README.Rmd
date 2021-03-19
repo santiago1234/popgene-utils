@@ -1,0 +1,23 @@
+---
+title: "A collection of scripts for popuation genomics"
+author: "Santiago G. Medina-Muñoz"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Overview
+
+In this repository, I keep some scripts that I have used for population genetic analyses.
+
+
+## Contents
+
+### Stats
+
+- [Site Frequency Spectrum](scripts/sfs_from_vcf.py)
+
+### Ploting
+
