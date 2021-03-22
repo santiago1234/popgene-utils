@@ -114,6 +114,28 @@ q_global <-
     chromosome = chrn
   )
 
+# add 0% ancestry ---------------------------------------------------------
+# the result in the computation above will not iclude cases in which
+# and ancestry is 0%
+# the next code will add those cases.
+
+q_0s <- 
+  crossing(
+    tibble(Individual = unique(q_global$Individual)),
+    tibble(assignment = unique(q_global$assignment))
+  )
+
+
+q_global <- 
+  setdiff(
+    q_0s, select(q_global, Individual, assignment)
+  ) %>% 
+  mutate(
+    n = 0,
+    p = 0
+  ) %>% 
+  bind_rows(q_global)
+
 write_csv(q_global, out_file)
 
 
